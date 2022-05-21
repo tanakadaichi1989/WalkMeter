@@ -15,6 +15,7 @@
 		A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85A2838F5FB007BC2EA /* WalkData.swift */; };
 		A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */; };
 		A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */; };
+		A1FDF8622839157E007BC2EA /* WalkCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF8612839157E007BC2EA /* WalkCountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataViewModel.swift; sourceTree = "<group>"; };
 		A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataService.swift; sourceTree = "<group>"; };
 		A1FDF8602839015A007BC2EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A1FDF8612839157E007BC2EA /* WalkCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkCountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				A1FDF8522838F20E007BC2EA /* WalkMeter.entitlements */,
 				A1B3CB55283261B000C3D3AE /* WalkMeterApp.swift */,
 				A1FDF85A2838F5FB007BC2EA /* WalkData.swift */,
+				A1FDF8612839157E007BC2EA /* WalkCountView.swift */,
 				A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */,
 				A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */,
 				A1B3CB57283261B000C3D3AE /* ContentView.swift */,
@@ -167,6 +170,7 @@
 				A1B3CB58283261B000C3D3AE /* ContentView.swift in Sources */,
 				A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */,
 				A1B3CB56283261B000C3D3AE /* WalkMeterApp.swift in Sources */,
+				A1FDF8622839157E007BC2EA /* WalkCountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
