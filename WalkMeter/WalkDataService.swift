@@ -63,7 +63,7 @@ class WalkDataService {
                     if let quantity = stats.sumQuantity() {
                         let date = stats.startDate
                         let count = quantity.doubleValue(for: .count())
-                        print("DEGUB Date: \(date), Count: \(count)")
+                        print("DEGUB Date: \(String.showDate(date)) Count: \(Int(count))")
                         items.append(WalkData(id: UUID(), datetime: date, count: count))
                     }
                 }
