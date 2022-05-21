@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: WalkDataViewModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            if viewModel.dataSource.count == 0 {
+                Text("歩数データがありません")
+            } else {
+                ForEach(viewModel.dataSource){ walkData in
+                    WalkCountView(label: walkData.datetime.description, walkCount: Int(walkData.count))///
+                }
+            }
+        }
     }
 }
 
