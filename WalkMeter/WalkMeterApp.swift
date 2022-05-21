@@ -10,7 +10,7 @@ import HealthKit
 
 @main
 struct WalkMeterApp: App {
-    @StateObject var viewModel = ContentViewModel()
+    @StateObject var viewModel = WalkDataViewModel()
     
     var body: some Scene {
         WindowGroup {

@@ -13,7 +13,8 @@
 		A1B3CB5D283261B200C3D3AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B3CB5C283261B200C3D3AE /* Preview Assets.xcassets */; };
 		A1FDF8552838F20E007BC2EA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FDF8542838F20E007BC2EA /* HealthKit.framework */; };
 		A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85A2838F5FB007BC2EA /* WalkData.swift */; };
-		A1FDF85D2838F64B007BC2EA /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85C2838F64B007BC2EA /* ContentViewModel.swift */; };
+		A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */; };
+		A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,9 @@
 		A1FDF8522838F20E007BC2EA /* WalkMeter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkMeter.entitlements; sourceTree = "<group>"; };
 		A1FDF8542838F20E007BC2EA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		A1FDF85A2838F5FB007BC2EA /* WalkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkData.swift; sourceTree = "<group>"; };
-		A1FDF85C2838F64B007BC2EA /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataViewModel.swift; sourceTree = "<group>"; };
+		A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataService.swift; sourceTree = "<group>"; };
+		A1FDF8602839015A007BC2EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +63,12 @@
 		A1B3CB54283261B000C3D3AE /* WalkMeter */ = {
 			isa = PBXGroup;
 			children = (
+				A1FDF8602839015A007BC2EA /* Info.plist */,
 				A1FDF8522838F20E007BC2EA /* WalkMeter.entitlements */,
 				A1B3CB55283261B000C3D3AE /* WalkMeterApp.swift */,
 				A1FDF85A2838F5FB007BC2EA /* WalkData.swift */,
-				A1FDF85C2838F64B007BC2EA /* ContentViewModel.swift */,
+				A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */,
+				A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */,
 				A1B3CB57283261B000C3D3AE /* ContentView.swift */,
 				A1B3CB59283261B200C3D3AE /* Assets.xcassets */,
 				A1B3CB5B283261B200C3D3AE /* Preview Content */,
@@ -157,7 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FDF85D2838F64B007BC2EA /* ContentViewModel.swift in Sources */,
+				A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */,
+				A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */,
 				A1B3CB58283261B000C3D3AE /* ContentView.swift in Sources */,
 				A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */,
 				A1B3CB56283261B000C3D3AE /* WalkMeterApp.swift in Sources */,
@@ -293,6 +299,9 @@
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WalkMeter/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "read health data";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "write health data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,6 +332,9 @@
 				DEVELOPMENT_TEAM = YUH8WT596Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WalkMeter/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "read health data";
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "write health data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: WalkDataViewModel
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            if viewModel.dataSource.count == 0 {
+                Text("データがありません")
+            } else {
+                ForEach( viewModel.dataSource ){ item in
+                    HStack {
+                        Text(item.datetime.description)
+                        Text("\(item.count)")
+                    }
+                }
+            }
+        }
     }
 }
 

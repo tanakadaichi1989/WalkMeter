@@ -11,5 +11,5 @@ import SwiftUI
 struct WalkData: Identifiable {
     var id: UUID
     var datetime: Date
-    var count: String
+    var count: Double
 }
