@@ -10,8 +10,11 @@ import SwiftUI
 import HealthKit
 
 class WalkDataService {
-    func get(fromDate: Date, toDate: Date, onSuccess: @escaping ([WalkData]) -> Void) {
-        var data:[WalkData] = [WalkData]()
+    func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
+        guard let fromDate = fromDate else { return }
+        guard let toDate = toDate else { return }
+
+        var items:[WalkData] = [WalkData]()
         let healthStore = HKHealthStore()
         let readTypes = Set([
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
@@ -33,10 +36,10 @@ class WalkDataService {
                     
                     if let tmpResults = results as? [HKQuantitySample] {
                         for item in tmpResults {
-                            data.append(WalkData(id: item.uuid,datetime: item.endDate,count: item.quantity.doubleValue(for: .count())))
+                            items.append(WalkData(id: item.uuid,datetime: item.endDate,count: item.quantity.doubleValue(for: .count())))
                         }
                     }
-                    onSuccess(data)
+                    data(items)
                 }
             healthStore.execute(query)
         })

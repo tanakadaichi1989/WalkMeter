@@ -13,13 +13,10 @@ struct ContentView: View {
     var body: some View {
         List {
             if viewModel.dataSource.count == 0 {
-                Text("データがありません")
+                Text("歩数データがありません")
             } else {
-                ForEach( viewModel.dataSource ){ item in
-                    HStack {
-                        Text(item.datetime.description)
-                        Text("\(item.count)")
-                    }
+                ForEach(viewModel.dataSource){ walkData in
+                    Text("\(walkData.datetime.description) 歩数：\(walkData.count)")
                 }
             }
         }
