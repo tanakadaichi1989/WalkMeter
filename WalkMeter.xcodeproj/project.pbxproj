@@ -16,6 +16,7 @@
 		A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */; };
 		A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */; };
 		A1FDF8622839157E007BC2EA /* WalkCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF8612839157E007BC2EA /* WalkCountView.swift */; };
+		A1FDF86828394E70007BC2EA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF86728394E70007BC2EA /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkDataService.swift; sourceTree = "<group>"; };
 		A1FDF8602839015A007BC2EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A1FDF8612839157E007BC2EA /* WalkCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkCountView.swift; sourceTree = "<group>"; };
+		A1FDF86728394E70007BC2EA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */,
 				A1FDF85C2838F64B007BC2EA /* WalkDataViewModel.swift */,
 				A1B3CB57283261B000C3D3AE /* ContentView.swift */,
+				A1FDF86728394E70007BC2EA /* StringExtension.swift */,
 				A1B3CB59283261B200C3D3AE /* Assets.xcassets */,
 				A1B3CB5B283261B200C3D3AE /* Preview Content */,
 			);
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */,
+				A1FDF86828394E70007BC2EA /* StringExtension.swift in Sources */,
 				A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */,
 				A1B3CB58283261B000C3D3AE /* ContentView.swift in Sources */,
 				A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */,

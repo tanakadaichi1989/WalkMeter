@@ -15,16 +15,10 @@ struct ContentView: View {
             if viewModel.dataSource.count == 0 {
                 Text("歩数データがありません")
             } else {
-                ForEach(viewModel.dataSource){ walkData in
-                    WalkCountView(label: walkData.datetime.description, walkCount: Int(walkData.count))///
-                }
+                ForEach(self.viewModel.dataSource.filter { Calendar.current.isDateInToday($0.datetime) }){ data in
+                    WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
+               }
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
