@@ -21,9 +21,11 @@ class WalkDataViewModel: ObservableObject,Identifiable {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
-        fromDate = dateFormatter.date(from: "2022/01/01 00:00:00")
-        toDate = Date()
+        let year = Calendar.current.component(.year, from: Date())
         
+        fromDate = dateFormatter.date(from: "\(year)/01/01 00:00:00")
+        toDate = Date()
+    
         self.service.get(from: fromDate,to: toDate){ data in
             DispatchQueue.main.async {
                 self.dataSource = data
