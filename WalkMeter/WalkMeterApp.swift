@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import HealthKit
 
 @main
 struct WalkMeterApp: App {
+    @StateObject var viewModel = ContentViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if HKHealthStore.isHealthDataAvailable() {
+                ContentView()
+                    .environmentObject(viewModel)
+            }
         }
     }
 }
