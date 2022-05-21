@@ -18,10 +18,6 @@ struct WalkCountView: View {
             Text(walkCount.description)
                 .fontWeight(.heavy)
         }
-        .frame(height: 100)
-        .padding()
-        .border(.bar, width: 2)
-        .cornerRadius(10)
     }
 }
 
