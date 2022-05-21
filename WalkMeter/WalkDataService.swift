@@ -11,8 +11,6 @@ import HealthKit
 
 class WalkDataService {
     func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
-        guard let fromDate = fromDate else { return }
-        guard let toDate = toDate else { return }
 
         var items:[WalkData] = [WalkData]()
         let healthStore = HKHealthStore()
@@ -26,6 +24,9 @@ class WalkDataService {
                 print("DEBUG: Can't access heath data ...")
                 return
             }
+            
+            guard let fromDate = fromDate else { return }
+            guard let toDate = toDate else { return }
             
             let query = HKSampleQuery(
                 sampleType: HKSampleType.quantityType(forIdentifier: .stepCount)!,
