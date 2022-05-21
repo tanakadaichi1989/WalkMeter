@@ -16,7 +16,7 @@ struct ContentView: View {
                 Text("歩数データがありません")
             } else {
                 ForEach(viewModel.dataSource){ walkData in
-                    WalkCountView(label: walkData.datetime.description, walkCount: Int(walkData.count))
+                    WalkCountView(label: walkData.datetime.description, walkCount: Int(walkData.count))///
                 }
             }
         }
