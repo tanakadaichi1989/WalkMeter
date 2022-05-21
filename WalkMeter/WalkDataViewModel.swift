@@ -21,8 +21,8 @@ class WalkDataViewModel: ObservableObject,Identifiable {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
-        fromDate = dateFormatter.date(from: "2020/01/01 00:00:00")
-        toDate = dateFormatter.date(from: "2022/05/21 23:59:59")
+        fromDate = dateFormatter.date(from: "2022/01/01 00:00:00")
+        toDate = Date()
         
         self.service.get(from: fromDate,to: toDate){ data in
             DispatchQueue.main.async {
