@@ -15,7 +15,7 @@ struct ContentView: View {
             if viewModel.dataSource.count == 0 {
                 Text("歩数データがありません")
             } else {
-                ForEach(self.viewModel.dataSource.filter { Calendar.current.isDateInToday($0.datetime) }){ data in
+                ForEach(self.viewModel.dataSource){ data in
                     WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
                }
             }
