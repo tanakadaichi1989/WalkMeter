@@ -11,14 +11,52 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: WalkDataViewModel
     
     var body: some View {
-        List {
-            if viewModel.dataSource.count == 0 {
-                Text("歩数データがありません")
-            } else {
-                ForEach(self.viewModel.dataSource){ data in
-                    WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
-               }
+        let todayCount = self.viewModel.dataSource.last?.count ?? 0
+        let todayDate = self.viewModel.dataSource.last?.datetime ?? Date()
+        
+        VStack {
+            VStack {
+                Spacer()
+                VStack {
+                    Text("\(Int(todayCount))")
+                        .font(.largeTitle)
+                    Text("Walk Count")
+                        .font(.title)
+                    Text("\(todayDate)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                Divider()
+                List {
+                    if viewModel.dataSource.count == 0 {
+                        Text("歩数データがありません")
+                    } else {
+                        ForEach(self.viewModel.dataSource){ data in
+                            WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
+                        }
+                    }
+                }
+                Spacer()
             }
         }
+        /*
+         List {
+         if viewModel.dataSource.count == 0 {
+         Text("歩数データがありません")
+         } else {
+         VStack(alignment: .leading) {
+         VStack {
+         Text("\(Int(todayCount))")
+         Text("today's Walk Count")
+         }
+         Text("todayDate: \(todayDate)")
+         Divider()
+         ForEach(self.viewModel.dataSource){ data in
+         WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
+         }
+         }
+         }
+         }
+         */
     }
 }
