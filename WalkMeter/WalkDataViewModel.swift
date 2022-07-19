@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import HealthKit
+import WidgetKit
 
 class WalkDataViewModel: ObservableObject,Identifiable {
     @Published var dataSource: [WalkData] = [WalkData]()
@@ -31,6 +32,7 @@ class WalkDataViewModel: ObservableObject,Identifiable {
         self.service.get(from: fromDate,to: toDate){ data in
             DispatchQueue.main.async {
                 self.dataSource = data
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
