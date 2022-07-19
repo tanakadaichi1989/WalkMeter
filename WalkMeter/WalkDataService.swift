@@ -8,9 +8,11 @@
 import Foundation
 import SwiftUI
 import HealthKit
+import WidgetKit
 
 class WalkDataService {
-    func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
+    
+    internal func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
         
         var items:[WalkData] = [WalkData]()
         let healthStore = HKHealthStore()
@@ -57,7 +59,7 @@ class WalkDataService {
                 intervalComponents: interval
             )
             
-            query.initialResultsHandler = { query, collection, error in
+            query.initialResultsHandler = { [self] query, collection, error in
                 guard let statsCollection = collection else { return }
                 statsCollection.enumerateStatistics(from: fromDate, to: toDate) { stats, stop in
                     if let quantity = stats.sumQuantity() {
@@ -68,8 +70,21 @@ class WalkDataService {
                     }
                 }
                 data(items)
+                self.save(walkData: items.last)
             }
             healthStore.execute(query)
         })
     }
+    
+    private func save(walkData: WalkData?) {
+        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
+        guard let unwrappedWalkData = walkData else { return }
+        print("🍋 Last: \(unwrappedWalkData)")
+        guard let walkData = try? JSONEncoder().encode(unwrappedWalkData) else { return }
+        print("🍏 JSONEncode: \(walkData.description))")
+        userDefaults.set(walkData, forKey: "walkData")
+        print("🍎 AppStrorage Recorded.")
+    }
+    
+    
 }

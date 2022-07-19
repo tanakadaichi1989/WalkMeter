@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct WalkData: Identifiable {
+struct WalkData: Identifiable,Codable {
     var id: UUID
     var datetime: Date
     var count: Double

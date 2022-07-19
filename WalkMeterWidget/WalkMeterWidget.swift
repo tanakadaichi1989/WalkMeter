@@ -10,40 +10,52 @@ import SwiftUI
 import Intents
 
 struct Provider: IntentTimelineProvider {
+
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
     }
     
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+        let entry = SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(9999)))
         completion(entry)
     }
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-        
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
         let currentDate = Date()
+        let walkData = userDefaults.object(forKey: "walkData")
         
         let entryDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
-        let entry = SimpleEntry(date: entryDate, configuration: configuration)
-        entries.append(entry)
         
-        let timeline = Timeline(entries: entries, policy: .atEnd)
+        
+        guard let unwrappedWalkData = try? JSONDecoder().decode(WalkData.self, from: walkData as! Data) else {
+            let entry = SimpleEntry(date: entryDate, walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
+            let timeline = Timeline(entries: [entry], policy: .never)
+            completion(timeline)
+            return
+        }
+        
+        let entry = SimpleEntry(date: entryDate, walkData: unwrappedWalkData)
+        let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
     }
+    
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    //let configuration: ConfigurationIntent
+    let walkData: WalkData
 }
 
 struct WalkMeterWidgetEntryView : View {
     var entry: Provider.Entry
     
     var body: some View {
-        Text(entry.date.description)
+        VStack {
+            Text("\(Int(entry.walkData.count))")
+            Text(entry.date.description)
+        }
     }
 }
 
@@ -62,7 +74,7 @@ struct WalkMeterWidget: Widget {
 
 struct WalkMeterWidget_Previews: PreviewProvider {
     static var previews: some View {
-        WalkMeterWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        WalkMeterWidgetEntryView(entry: SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(1234))))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
