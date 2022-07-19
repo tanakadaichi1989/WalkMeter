@@ -11,6 +11,7 @@ import HealthKit
 import WidgetKit
 
 class WalkDataService {
+    @AppStorage("walkData") var walkData: Data = Data()
     
     internal func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
         
@@ -77,12 +78,9 @@ class WalkDataService {
     }
     
     private func save(walkData: WalkData?) {
-        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
-        guard let unwrappedWalkData = walkData else { return }
-        print("🍋 Last: \(unwrappedWalkData)")
-        guard let walkData = try? JSONEncoder().encode(unwrappedWalkData) else { return }
-        print("🍏 JSONEncode: \(walkData.description))")
-        userDefaults.set(walkData, forKey: "walkData")
+        guard let walkData = try? JSONEncoder().encode(walkData) else { return }
+        print("🍏 JSONEncode: \(walkData.description)")
+        self.walkData = walkData
         print("🍎 AppStrorage Recorded.")
     }
     
