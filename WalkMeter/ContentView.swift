@@ -15,9 +15,12 @@ struct ContentView: View {
         let todayCount = self.viewModel.dataSource.last?.count ?? 0
         let todayDate = self.viewModel.dataSource.last?.datetime ?? Date()
         
+        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
+        
         VStack {
             VStack {
                 Spacer()
+                Text("userDefaults: \(userDefaults.double(forKey: "walkData"))")
                 VStack {
                     Text("\(Int(todayCount))")
                         .font(.largeTitle)
@@ -35,16 +38,24 @@ struct ContentView: View {
                         ForEach(self.viewModel.dataSource){ data in
                             WalkCountView(label: String.showDate(data.datetime), walkCount: Int(data.count))
                         }
+                        .onAppear {
+                            self.prepareForWidget()
+                        }
                     }
                 }
                 Spacer()
             }
         }
         .onAppear {
-            WidgetCenter.shared.reloadAllTimelines()
+            self.prepareForWidget()
         }
         .onDisappear {
-            WidgetCenter.shared.reloadAllTimelines()
+            self.prepareForWidget()
         }
+    }
+    
+    private func prepareForWidget(){
+        self.viewModel.save()
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }

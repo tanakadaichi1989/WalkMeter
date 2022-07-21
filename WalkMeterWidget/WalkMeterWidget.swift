@@ -2,54 +2,57 @@
 //  WalkMeterWidget.swift
 //  WalkMeterWidget
 //
-//  Created by 田中大地 on 2022/07/19.
+//  Created by 田中大地 on 2022/07/22.
 //
 
 import WidgetKit
 import SwiftUI
+import Intents
 
 struct Provider: IntentTimelineProvider {
-    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
+        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
     }
-    
+
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(9999)))
+        let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
     }
-    
+
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
-        let walkData = userDefaults.double(forKey: "walkData")
-        let date = Date()
-        
-        let entry = SimpleEntry(date: date, walkData: WalkData(id: UUID(), datetime: Date(), count: walkData))
-        let timeline = Timeline(entries: [entry], policy: .never)
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            let entry = SimpleEntry(date: entryDate, configuration: configuration)
+            entries.append(entry)
+        }
+
+        let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let walkData: WalkData
+    let configuration: ConfigurationIntent
 }
 
 struct WalkMeterWidgetEntryView : View {
     var entry: Provider.Entry
-    
+
     var body: some View {
-        VStack {
-            Text("\(entry.walkData.count)")
-            Text(entry.date.description)
-        }
+        //Text(entry.date, style: .time)
+        Text(entry.date.description)
     }
 }
 
 @main
 struct WalkMeterWidget: Widget {
     let kind: String = "WalkMeterWidget"
-    
+
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             WalkMeterWidgetEntryView(entry: entry)
@@ -61,7 +64,7 @@ struct WalkMeterWidget: Widget {
 
 struct WalkMeterWidget_Previews: PreviewProvider {
     static var previews: some View {
-        WalkMeterWidgetEntryView(entry: SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(1234))))
+        WalkMeterWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

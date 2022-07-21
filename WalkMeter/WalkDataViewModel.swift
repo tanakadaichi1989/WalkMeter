@@ -34,17 +34,15 @@ class WalkDataViewModel: ObservableObject,Identifiable {
         self.service.get(from: fromDate,to: toDate){ data in
             DispatchQueue.main.async {
                 self.dataSource = data
-                self.save(walkData: data.last)
             }
         }
     }
     
-    private func save(walkData: WalkData?) {
-        guard let walkData = walkData else { return }
+    func save() {
         //guard let unwrappedWalkData = try? JSONEncoder().encode(walkData) else { return }
         //print("🍏 JSONEncode: \(unwrappedWalkData.description)")
         let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
-        userDefaults.set(walkData.count, forKey: "walkData")
+        userDefaults.set(self.dataSource.last?.count, forKey: "walkData")
         print("🍎 AppStrorage Recorded.")
     }
 }

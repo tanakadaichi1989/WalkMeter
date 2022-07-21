@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10647872886C821001E5B3F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10647862886C821001E5B3F /* WidgetKit.framework */; };
-		A10647892886C821001E5B3F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10647882886C821001E5B3F /* SwiftUI.framework */; };
-		A106478C2886C821001E5B3F /* WalkMeterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106478B2886C821001E5B3F /* WalkMeterWidget.swift */; };
-		A106478F2886C822001E5B3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A106478E2886C822001E5B3F /* Assets.xcassets */; };
-		A10647912886C822001E5B3F /* WalkMeterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A106478D2886C821001E5B3F /* WalkMeterWidget.intentdefinition */; };
-		A10647922886C822001E5B3F /* WalkMeterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A106478D2886C821001E5B3F /* WalkMeterWidget.intentdefinition */; };
-		A10647952886C822001E5B3F /* WalkMeterWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A10647852886C821001E5B3F /* WalkMeterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A106479D2886D241001E5B3F /* WalkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85A2838F5FB007BC2EA /* WalkData.swift */; };
-		A10647A62886F773001E5B3F /* WalkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF85E2838FE0B007BC2EA /* WalkDataService.swift */; };
-		A10647A72886F77E001E5B3F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FDF86728394E70007BC2EA /* StringExtension.swift */; };
+		A10647C42889B637001E5B3F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10647862886C821001E5B3F /* WidgetKit.framework */; };
+		A10647C52889B637001E5B3F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10647882886C821001E5B3F /* SwiftUI.framework */; };
+		A10647C82889B637001E5B3F /* WalkMeterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10647C72889B637001E5B3F /* WalkMeterWidget.swift */; };
+		A10647CB2889B638001E5B3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10647CA2889B638001E5B3F /* Assets.xcassets */; };
+		A10647CD2889B638001E5B3F /* WalkMeterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A10647C92889B637001E5B3F /* WalkMeterWidget.intentdefinition */; };
+		A10647CE2889B638001E5B3F /* WalkMeterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A10647C92889B637001E5B3F /* WalkMeterWidget.intentdefinition */; };
+		A10647D12889B638001E5B3F /* WalkMeterWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A10647C32889B637001E5B3F /* WalkMeterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1B3CB56283261B000C3D3AE /* WalkMeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB55283261B000C3D3AE /* WalkMeterApp.swift */; };
 		A1B3CB58283261B000C3D3AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3CB57283261B000C3D3AE /* ContentView.swift */; };
 		A1B3CB5A283261B200C3D3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B3CB59283261B200C3D3AE /* Assets.xcassets */; };
@@ -30,11 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A10647932886C822001E5B3F /* PBXContainerItemProxy */ = {
+		A10647CF2889B638001E5B3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A1B3CB4A283261B000C3D3AE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A10647842886C821001E5B3F;
+			remoteGlobalIDString = A10647C22889B637001E5B3F;
 			remoteInfo = WalkMeterWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -46,7 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A10647952886C822001E5B3F /* WalkMeterWidgetExtension.appex in Embed App Extensions */,
+				A10647D12889B638001E5B3F /* WalkMeterWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,15 +51,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A10647852886C821001E5B3F /* WalkMeterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WalkMeterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10647862886C821001E5B3F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A10647882886C821001E5B3F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A106478B2886C821001E5B3F /* WalkMeterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkMeterWidget.swift; sourceTree = "<group>"; };
-		A106478D2886C821001E5B3F /* WalkMeterWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WalkMeterWidget.intentdefinition; sourceTree = "<group>"; };
-		A106478E2886C822001E5B3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A10647902886C822001E5B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A106479A2886C83D001E5B3F /* WalkMeterWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkMeterWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		A106479B2886C852001E5B3F /* WalkMeterRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkMeterRelease.entitlements; sourceTree = "<group>"; };
+		A10647C32889B637001E5B3F /* WalkMeterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WalkMeterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10647C72889B637001E5B3F /* WalkMeterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkMeterWidget.swift; sourceTree = "<group>"; };
+		A10647C92889B637001E5B3F /* WalkMeterWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WalkMeterWidget.intentdefinition; sourceTree = "<group>"; };
+		A10647CA2889B638001E5B3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10647CC2889B638001E5B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B3CB52283261B000C3D3AE /* WalkMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B3CB55283261B000C3D3AE /* WalkMeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkMeterApp.swift; sourceTree = "<group>"; };
 		A1B3CB57283261B000C3D3AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,12 +76,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A10647822886C821001E5B3F /* Frameworks */ = {
+		A10647C02889B637001E5B3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10647892886C821001E5B3F /* SwiftUI.framework in Frameworks */,
-				A10647872886C821001E5B3F /* WidgetKit.framework in Frameworks */,
+				A10647C52889B637001E5B3F /* SwiftUI.framework in Frameworks */,
+				A10647C42889B637001E5B3F /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A106478A2886C821001E5B3F /* WalkMeterWidget */ = {
+		A10647C62889B637001E5B3F /* WalkMeterWidget */ = {
 			isa = PBXGroup;
 			children = (
-				A106478B2886C821001E5B3F /* WalkMeterWidget.swift */,
-				A106478D2886C821001E5B3F /* WalkMeterWidget.intentdefinition */,
-				A106478E2886C822001E5B3F /* Assets.xcassets */,
-				A10647902886C822001E5B3F /* Info.plist */,
+				A10647C72889B637001E5B3F /* WalkMeterWidget.swift */,
+				A10647C92889B637001E5B3F /* WalkMeterWidget.intentdefinition */,
+				A10647CA2889B638001E5B3F /* Assets.xcassets */,
+				A10647CC2889B638001E5B3F /* Info.plist */,
 			);
 			path = WalkMeterWidget;
 			sourceTree = "<group>";
@@ -115,7 +112,7 @@
 			children = (
 				A106479A2886C83D001E5B3F /* WalkMeterWidgetExtensionRelease.entitlements */,
 				A1B3CB54283261B000C3D3AE /* WalkMeter */,
-				A106478A2886C821001E5B3F /* WalkMeterWidget */,
+				A10647C62889B637001E5B3F /* WalkMeterWidget */,
 				A1B3CB53283261B000C3D3AE /* Products */,
 				A1FDF8532838F20E007BC2EA /* Frameworks */,
 			);
@@ -125,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B3CB52283261B000C3D3AE /* WalkMeter.app */,
-				A10647852886C821001E5B3F /* WalkMeterWidgetExtension.appex */,
+				A10647C32889B637001E5B3F /* WalkMeterWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,13 +167,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A10647842886C821001E5B3F /* WalkMeterWidgetExtension */ = {
+		A10647C22889B637001E5B3F /* WalkMeterWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A10647992886C822001E5B3F /* Build configuration list for PBXNativeTarget "WalkMeterWidgetExtension" */;
+			buildConfigurationList = A10647D22889B638001E5B3F /* Build configuration list for PBXNativeTarget "WalkMeterWidgetExtension" */;
 			buildPhases = (
-				A10647812886C821001E5B3F /* Sources */,
-				A10647822886C821001E5B3F /* Frameworks */,
-				A10647832886C821001E5B3F /* Resources */,
+				A10647BF2889B637001E5B3F /* Sources */,
+				A10647C02889B637001E5B3F /* Frameworks */,
+				A10647C12889B637001E5B3F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -184,7 +181,7 @@
 			);
 			name = WalkMeterWidgetExtension;
 			productName = WalkMeterWidgetExtension;
-			productReference = A10647852886C821001E5B3F /* WalkMeterWidgetExtension.appex */;
+			productReference = A10647C32889B637001E5B3F /* WalkMeterWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		A1B3CB51283261B000C3D3AE /* WalkMeter */ = {
@@ -199,7 +196,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A10647942886C822001E5B3F /* PBXTargetDependency */,
+				A10647D02889B638001E5B3F /* PBXTargetDependency */,
 			);
 			name = WalkMeter;
 			productName = WalkMeter;
@@ -216,7 +213,7 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					A10647842886C821001E5B3F = {
+					A10647C22889B637001E5B3F = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					A1B3CB51283261B000C3D3AE = {
@@ -238,17 +235,17 @@
 			projectRoot = "";
 			targets = (
 				A1B3CB51283261B000C3D3AE /* WalkMeter */,
-				A10647842886C821001E5B3F /* WalkMeterWidgetExtension */,
+				A10647C22889B637001E5B3F /* WalkMeterWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A10647832886C821001E5B3F /* Resources */ = {
+		A10647C12889B637001E5B3F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A106478F2886C822001E5B3F /* Assets.xcassets in Resources */,
+				A10647CB2889B638001E5B3F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,15 +261,12 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A10647812886C821001E5B3F /* Sources */ = {
+		A10647BF2889B637001E5B3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10647912886C822001E5B3F /* WalkMeterWidget.intentdefinition in Sources */,
-				A106479D2886D241001E5B3F /* WalkData.swift in Sources */,
-				A10647A72886F77E001E5B3F /* StringExtension.swift in Sources */,
-				A10647A62886F773001E5B3F /* WalkDataService.swift in Sources */,
-				A106478C2886C821001E5B3F /* WalkMeterWidget.swift in Sources */,
+				A10647CD2889B638001E5B3F /* WalkMeterWidget.intentdefinition in Sources */,
+				A10647C82889B637001E5B3F /* WalkMeterWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +276,7 @@
 			files = (
 				A1FDF85D2838F64B007BC2EA /* WalkDataViewModel.swift in Sources */,
 				A1FDF86828394E70007BC2EA /* StringExtension.swift in Sources */,
-				A10647922886C822001E5B3F /* WalkMeterWidget.intentdefinition in Sources */,
+				A10647CE2889B638001E5B3F /* WalkMeterWidget.intentdefinition in Sources */,
 				A1FDF85F2838FE0B007BC2EA /* WalkDataService.swift in Sources */,
 				A1B3CB58283261B000C3D3AE /* ContentView.swift in Sources */,
 				A1FDF85B2838F5FB007BC2EA /* WalkData.swift in Sources */,
@@ -294,15 +288,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A10647942886C822001E5B3F /* PBXTargetDependency */ = {
+		A10647D02889B638001E5B3F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A10647842886C821001E5B3F /* WalkMeterWidgetExtension */;
-			targetProxy = A10647932886C822001E5B3F /* PBXContainerItemProxy */;
+			target = A10647C22889B637001E5B3F /* WalkMeterWidgetExtension */;
+			targetProxy = A10647CF2889B638001E5B3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A10647972886C822001E5B3F /* Debug */ = {
+		A10647D32889B638001E5B3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,7 +324,7 @@
 			};
 			name = Debug;
 		};
-		A10647982886C822001E5B3F /* Release */ = {
+		A10647D42889B638001E5B3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -544,11 +538,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A10647992886C822001E5B3F /* Build configuration list for PBXNativeTarget "WalkMeterWidgetExtension" */ = {
+		A10647D22889B638001E5B3F /* Build configuration list for PBXNativeTarget "WalkMeterWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A10647972886C822001E5B3F /* Debug */,
-				A10647982886C822001E5B3F /* Release */,
+				A10647D32889B638001E5B3F /* Debug */,
+				A10647D42889B638001E5B3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
