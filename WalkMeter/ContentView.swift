@@ -40,30 +40,5 @@ struct ContentView: View {
                 Spacer()
             }
         }
-        .onDisappear {
-            WidgetCenter.shared.reloadAllTimelines()
-        }
     }
-    
-    /*
-    private func conformData(){
-        guard let walkData = UserDefaults.standard.object(forKey: "walkData") else {
-            print("💛 WalkData は nil でした")
-            return
-        }
-        self.decode(walkData: walkData as! Data)
-    }
-    
-    private func decode(walkData: Data) {
-        guard let walkData = try? JSONDecoder().decode(WalkData.self,from: walkData) else {
-            print("♦️ WalkData は nil でした")
-            return
-        }
-        print("⭐️ ContentView: \(walkData)")
-        
-        let userDefaults = UserDefaults(suiteName: "group.sample.WalkMeter")!
-        userDefaults.set(walkData, forKey: "walkData")
-        print("🍎 AppStrorage Recorded.")
-    }
-    */
 }

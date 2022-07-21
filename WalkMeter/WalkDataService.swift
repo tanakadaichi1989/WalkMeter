@@ -11,7 +11,6 @@ import HealthKit
 import WidgetKit
 
 class WalkDataService {
-    @AppStorage("walkData") var walkData: Data = Data()
     
     internal func get(from fromDate: Date?, to toDate: Date?, data: @escaping ([WalkData]) -> Void) {
         
@@ -71,18 +70,8 @@ class WalkDataService {
                     }
                 }
                 data(items)
-                self.save(walkData: items.last)
             }
             healthStore.execute(query)
         })
     }
-    
-    private func save(walkData: WalkData?) {
-        guard let walkData = try? JSONEncoder().encode(walkData) else { return }
-        print("🍏 JSONEncode: \(walkData.description)")
-        self.walkData = walkData
-        print("🍎 AppStrorage Recorded.")
-    }
-    
-    
 }

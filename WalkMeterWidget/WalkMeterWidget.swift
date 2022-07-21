@@ -22,11 +22,11 @@ struct Provider: IntentTimelineProvider {
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let currentDate = Date()
-        let walkData = UserDefaults.standard.data(forKey: "walkData") ?? Data()
+        let walkData = UserDefaults.standard.object(forKey: "walkData") ?? Data()
         
         let entryDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
         
-        guard let unwrappedWalkData = try? JSONDecoder().decode(WalkData.self, from: walkData) else {
+        guard let unwrappedWalkData = try? JSONDecoder().decode(WalkData.self, from: walkData as! Data) else {
             let entry = SimpleEntry(date: entryDate, walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
             let timeline = Timeline(entries: [entry], policy: .never)
             completion(timeline)
