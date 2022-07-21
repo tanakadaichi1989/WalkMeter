@@ -7,10 +7,9 @@
 
 import WidgetKit
 import SwiftUI
-import Intents
 
 struct Provider: IntentTimelineProvider {
-
+    
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
     }
@@ -21,28 +20,18 @@ struct Provider: IntentTimelineProvider {
     }
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let currentDate = Date()
-        let walkData = UserDefaults.standard.object(forKey: "walkData") ?? Data()
+        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
+        let walkData = userDefaults.double(forKey: "walkData")
+        let date = Date()
         
-        let entryDate = Calendar.current.date(byAdding: .minute, value: 15, to: currentDate)!
-        
-        guard let unwrappedWalkData = try? JSONDecoder().decode(WalkData.self, from: walkData as! Data) else {
-            let entry = SimpleEntry(date: entryDate, walkData: WalkData(id: UUID(), datetime: Date(), count: Double(0)))
-            let timeline = Timeline(entries: [entry], policy: .never)
-            completion(timeline)
-            return
-        }
-        
-        let entry = SimpleEntry(date: entryDate, walkData: unwrappedWalkData)
+        let entry = SimpleEntry(date: date, walkData: WalkData(id: UUID(), datetime: Date(), count: walkData))
         let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
     }
-    
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    //let configuration: ConfigurationIntent
     let walkData: WalkData
 }
 
@@ -51,7 +40,7 @@ struct WalkMeterWidgetEntryView : View {
     
     var body: some View {
         VStack {
-            Text("\(Int(entry.walkData.count))")
+            Text("\(entry.walkData.count)")
             Text(entry.date.description)
         }
     }

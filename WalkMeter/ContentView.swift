@@ -40,5 +40,11 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
+        .onDisappear {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 }

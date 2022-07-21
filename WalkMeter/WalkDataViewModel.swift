@@ -12,7 +12,7 @@ import WidgetKit
 
 class WalkDataViewModel: ObservableObject,Identifiable {
     @Published var dataSource: [WalkData] = [WalkData]()
-    @AppStorage("walkData") var walkData = Data()
+    @AppStorage("walkData", store: UserDefaults(suiteName: "group.Sample.WalkMeter")) var walkData = Data()
     
     private let service = WalkDataService()
     let fromDate: Date?
@@ -35,16 +35,16 @@ class WalkDataViewModel: ObservableObject,Identifiable {
             DispatchQueue.main.async {
                 self.dataSource = data
                 self.save(walkData: data.last)
-                WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
     
     private func save(walkData: WalkData?) {
         guard let walkData = walkData else { return }
-        guard let unwrappedWalkData = try? JSONEncoder().encode(walkData) else { return }
-        print("🍏 JSONEncode: \(unwrappedWalkData.description)")
-        self.walkData = unwrappedWalkData
+        //guard let unwrappedWalkData = try? JSONEncoder().encode(walkData) else { return }
+        //print("🍏 JSONEncode: \(unwrappedWalkData.description)")
+        let userDefaults = UserDefaults(suiteName: "group.Sample.WalkMeter")!
+        userDefaults.set(walkData.count, forKey: "walkData")
         print("🍎 AppStrorage Recorded.")
     }
 }
